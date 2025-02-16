@@ -14,10 +14,6 @@ interface SalesData {
   retailerMargin: number;
 }
 
-interface SalesChartProps {
-  salesData: SalesData[]; // Defining salesData as an array of SalesData
-}
-
 const aggregateSalesByMonth = (salesData: SalesData[]) => {
   return salesData.reduce((acc, { weekEnding, retailSales, wholesaleSales }) => {
     const month = parseInt(weekEnding.substring(5, 7), 10) - 1; // Extract MM as zero-based index
@@ -45,7 +41,7 @@ const SalesChart = ({sales}) => {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart'
+        text: ''
       }
     }
   };
@@ -58,7 +54,7 @@ const SalesChart = ({sales}) => {
         data: retailSalesData,
         borderColor: "#778899",
         backgroundColor: "#778899",
-        fill: true,
+        fill: false,
       },
       {
         label: "Wholesale Sales",
@@ -72,7 +68,7 @@ const SalesChart = ({sales}) => {
   
   return (
     <div className="p-4 bg-gray-100 rounded-lg">
-      <h2 className="text-lg font-bold mb-2">Sales Chart by Month</h2>
+      <h2 className="text-lg mb-2">Retail Sales</h2>
       <Line data={data} options={options}/>
     </div>
   );

@@ -1,11 +1,13 @@
 import Image from "next/image";
 import ClientsData from "./data/clients.json";
 import SalesChart from "./components/SalesChart";
+import SalesTable from "./components/SalesTable";
 
 export default function Home() {
 
   // Extract sales from clients
   const salesData = ClientsData.flatMap(product => product.sales);
+  console.log(salesData);
 
   // Setting headers for table
   const headers = ["WEEK ENDING", "RETAIL SALES", "WHOLESALE SALES", "UNITS SOLD", "RETAILER MARGIN"];
@@ -37,13 +39,14 @@ export default function Home() {
         </div>
      
       {/* Dashboard */}
-        <div className="opacity-90 flex-col gap-6">
-          <div> 
+        <div className="flex-col gap-20 opacity-90">
+          <div className="mb-20"> 
             <SalesChart sales={salesData}/>
           </div>
           <div> 
-            {console.log(headers)}
+            <SalesTable headers={headers} salesData={salesData}/>
           </div>
+
         </div>
       
       </section>
