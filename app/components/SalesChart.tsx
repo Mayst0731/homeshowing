@@ -1,5 +1,6 @@
 'use client'
 import { Line } from 'react-chartjs-2';
+import { FunctionComponent } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -26,25 +27,12 @@ const aggregateSalesByMonth = (salesData: SalesData[]) => {
 
 const monthNames = ["JAN", "FEB", "MAE", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
-const SalesChart = ({sales}) => {
+const SalesChart : FunctionComponent<{ sales: SalesData[] }> = ({sales}) => {
  
   const aggregatedSales = aggregateSalesByMonth(sales);
   const labels = Object.keys(aggregatedSales).map(month => monthNames[Number(month)]);
   const retailSalesData = Object.values(aggregatedSales).map(sales => sales.retailSales);
   const wholesaleSalesData = Object.values(aggregatedSales).map(sales => sales.wholesaleSales);
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: ''
-      }
-    }
-  };
 
   const data = {
     labels,
@@ -69,7 +57,7 @@ const SalesChart = ({sales}) => {
   return (
     <div className="p-4 bg-gray-100 rounded-lg">
       <h2 className="text-lg mb-2 text-black opacity-50">Retail Sales</h2>
-      <Line data={data} options={options}/>
+      <Line data={data}/>
     </div>
   );
 

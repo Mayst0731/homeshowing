@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 
 interface SalesData {
   weekEnding: string;
@@ -7,7 +8,7 @@ interface SalesData {
   retailerMargin: number;
 }
 
-const SalesTable = ({headers, salesData}) => {
+const SalesTable: FunctionComponent<{headers: string[], salesData: SalesData[]}> = ({headers, salesData}) => {
 
     return (<table className="w-full border-collapse border border-white-300 mb-4 bg-white">
         <thead>
