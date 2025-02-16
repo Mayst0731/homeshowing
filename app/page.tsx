@@ -10,8 +10,6 @@ export default function Home() {
   // Extract sales from clients
   const salesData = ClientsData.flatMap(product => product.sales);
 
-  console.log(ClientsData);
-
   // Setting headers for table
   const headers = ["WEEK ENDING", "RETAIL SALES", "WHOLESALE SALES", "UNITS SOLD", "RETAILER MARGIN"];
 
@@ -47,7 +45,7 @@ export default function Home() {
           <div className="flex justify-start gap-7 mx-3">
             {
               blenderChoices.map((choice) => 
-                <div key={choice} className="opacity-100 mb-10 border rounded-md border-b-2 px-3 py-1s text-gray-400">
+                <div key={choice} className="opacity-100 mb-5 border rounded-md border-b-2 px-3 pt-1 text-gray-400">
                     {choice}
                 </div>
               )
