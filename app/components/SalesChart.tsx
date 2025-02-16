@@ -24,7 +24,7 @@ const aggregateSalesByMonth = (salesData: SalesData[]) => {
   }, {} as Record<number, { retailSales: number; wholesaleSales: number }>);
 };
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const monthNames = ["JAN", "FEB", "MAE", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
 const SalesChart = ({sales}) => {
  
@@ -68,7 +68,7 @@ const SalesChart = ({sales}) => {
   
   return (
     <div className="p-4 bg-gray-100 rounded-lg">
-      <h2 className="text-lg mb-2">Retail Sales</h2>
+      <h2 className="text-lg mb-2 text-black opacity-50">Retail Sales</h2>
       <Line data={data} options={options}/>
     </div>
   );

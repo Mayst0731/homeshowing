@@ -9,22 +9,22 @@ interface SalesData {
 
 const SalesTable = ({headers, salesData}) => {
 
-    return (<table className="w-full border-collapse border border-white-300 mb-4">
+    return (<table className="w-full border-collapse border border-white-300 mb-4 bg-white">
         <thead>
-          <tr className="bg-gray-200">
+          <tr className="bg-white">
             {headers.map((header, index) => (
-              <th key={index} className="border border-white-300 p-2 text-left">{header}</th>
+              <th key={index} className="border border-grey-300 p-2 text-left text-black opacity-55 uppercase">{header}</th>
             ))}
           </tr>
         </thead>
           <tbody>
             {salesData.map((sale, index) => (
                 <tr key={index} className="border border-gray-300 p-2">
-                    <td className="p-2 border">{sale.weekEnding}</td>
-                    <td className="p-2 border">{sale.retailSales}</td>
-                    <td className="p-2 border border-gray-300">{sale.wholesaleSales}</td>
-                    <td className="p-2 border border-gray-300">{sale.unitsSold}</td>
-                    <td className="p-2 border border-gray-300">{sale.retailerMargin}</td>
+                    <td className="p-2 border border-gray-300 text-black opacity-50">{sale.weekEnding}</td>
+                    <td className="p-2 border border-gray-300 text-black opacity-50">{sale.retailSales}</td>
+                    <td className="p-2 border border-gray-300 text-black opacity-50">{sale.wholesaleSales}</td>
+                    <td className="p-2 border border-gray-300 text-black opacity-50">{sale.unitsSold}</td>
+                    <td className="p-2 border border-gray-300 text-black opacity-50">{sale.retailerMargin}</td>
                 </tr>
             ))}
         </tbody>
