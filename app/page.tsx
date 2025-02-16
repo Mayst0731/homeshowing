@@ -1,19 +1,14 @@
 import Image from "next/image";
-import ClientsData from "./data/clients.json"
+import ClientsData from "./data/clients.json";
+import SalesChart from "./components/SalesChart";
 
 export default function Home() {
 
-  console.log(ClientsData);
-
-  ClientsData.map((client) => {console.log(client)});
-
   // Extract sales from clients
   const salesData = ClientsData.flatMap(product => product.sales);
-  console.log(salesData);
 
   // Setting headers for table
-  const headers = ["WEEK ENDING", "RETAIL SALES", "WHOLESALE SALES", "UNITS SOLD", "RETAILER MARGIN"]
-
+  const headers = ["WEEK ENDING", "RETAIL SALES", "WHOLESALE SALES", "UNITS SOLD", "RETAILER MARGIN"];
 
   return (
     <main className="flex flex-col justify-between pt-5 pl-5">
@@ -44,18 +39,10 @@ export default function Home() {
       {/* Dashboard */}
         <div className="opacity-90 flex-col gap-6">
           <div> 
-            <ul className="max-w-lg mx-auto">
-              {/* {sales.map(sale) => 
-                <li key=""></li>
-              )} */}
-            </ul> 
+            <SalesChart sales={salesData}/>
           </div>
           <div> 
-            <ul className="max-w-lg mx-auto">
-              {/* {sales.map((sale) => 
-                <li key={sale.title}></li>
-              )} */}
-            </ul> 
+            {console.log(headers)}
           </div>
         </div>
       
